@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-var connectionString = 'mongodb://user:user@ds237707.mlab.com:37707/mjb-vue-music'   // Change Me!!!!!!!
+var connectionString = 'mongodb://student:<student>@ds016298.mlab.com:16298/musicvue' 
 var connection = mongoose.connection
 
 

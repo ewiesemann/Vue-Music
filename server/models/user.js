@@ -20,8 +20,4 @@ schema.methods.validatePassword = function (password) {
     return bcrypt.compare(password, this.hash)
 }
 
-
-
-
-
 module.exports = mongoose.model(schemaName, schema)

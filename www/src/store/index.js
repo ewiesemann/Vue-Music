@@ -3,7 +3,12 @@ import vuex from 'vuex'
 import axios from 'axios'
 
 var api=axios.create({
-    baseURL: 'https://itunes.apple.com/search?media=music&term=',     // Need to add in url link to database
+    baseURL: 'https://itunes.apple.com/',    
+    timeout: 3000
+})
+
+var musicapi-axios.create({
+    baseURL:'mongodb://student:<student>@ds016298.mlab.com:16298/musicvue'
     timeout: 3000
 })
 
