@@ -15,11 +15,11 @@ app.use(bp.urlencoded({extended: true}))
 
 //Code above is always the same
 
-let auth = require('../server/auth/routes')
-app.use(auth.session)
-app.use(auth.routes)
+//let auth = require('../server/auth/routes')
+//app.use(auth.session)
+//app.use(auth.routes)
 
-var users = require('../server/routes/users')
+//var users = require('../server/routes/users')
 var playlists = require('../server/routes/playlists')
 
 app.use(playlists.router)
@@ -47,5 +47,3 @@ app.get('*', (req, res, next) => {
 app.listen(port, () => {
  console.log('server running on port', port)
 })
-
-

@@ -1,12 +1,16 @@
 <template>
   <div class="hello">
-
+    <div class="searchbar">
+      <form @submit.prevent="findSongs">
+        <input type="text" v-model="query">
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Home',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
