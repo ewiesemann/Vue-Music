@@ -8,7 +8,7 @@ app.use(cors())
 
 require ('../server/db/mlab-config')
 
-console.log('got to this point')
+
 //REGISTER MIDDLEWEAR
 app.use(bp.json())
 app.use(bp.urlencoded({extended: true}))
@@ -21,7 +21,10 @@ app.use(bp.urlencoded({extended: true}))
 
 //var users = require('../server/routes/users')
 var playlists = require('../server/routes/playlists')
+var users = require('../server/routes/users')
 
+
+app.use(users.router)
 app.use(playlists.router)
 
 // app.use('/users/*', (req, res, next) => {

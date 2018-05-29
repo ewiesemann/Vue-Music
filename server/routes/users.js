@@ -15,8 +15,9 @@ router.get('/api/users', (req, res, next)=>{
 })
 
 // Get Users by ID
+
 router.get('/api/users/:id', (req, res, next)=>{
-    Users.findById(req.params.id)
+Users.findById(req.params.id)
     .then(users=>{
         res.status(200).send(users)
     })

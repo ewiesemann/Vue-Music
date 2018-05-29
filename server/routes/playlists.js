@@ -3,7 +3,7 @@ var Playlists = require('../models/playlist')
 //let session = require('../auth/session')
 var Users = require('../models/user')
 
-router.get('api/playlists', (req, res, next) =>{
+router.get('mongoApi/playlists', (req, res, next) =>{
     Playlists.find({})
     .then(playlists => {
         res.status(200).send(playlists)
@@ -13,7 +13,7 @@ router.get('api/playlists', (req, res, next) =>{
     })
 })
 
-router.post('/api/playlists', (req, res, next) => {
+router.post('/mongoApi/playlists', (req, res, next) => {
     var playlist = req.body
     Playlists.create(playlist)
       .then(newPlaylist => {
@@ -24,7 +24,7 @@ router.post('/api/playlists', (req, res, next) => {
       })
   })
 
-  router.delete('/api/playlists', (req, res, next)=>{
+  router.delete('/mongoApi/playlists', (req, res, next)=>{
     Playlists.findByIdAndRemove(req.params.id)
       .then(data=>{
         res.send("Successfully Deleted Playlists")
