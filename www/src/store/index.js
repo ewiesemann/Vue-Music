@@ -57,7 +57,6 @@ export default new vuex.Store({
         getUser({ dispatch, commit }, user) {
             api.post('users/byname/' + user.name)
                 .then(res => {
-                    //console.log(res)
                     commit('setUser', res.data)
                 })
                 .catch(err => {
@@ -73,7 +72,7 @@ export default new vuex.Store({
         },
         addToPlaylist({ commit, dispatch, state }, song) {
             commit('addToPlaylist', song)
-            // router.push({name: 'song'})
+    
         },
         findSongs({ commit, dispatch }, query) {
             musicApi.get('search?media=music&term=' + query)
@@ -98,9 +97,4 @@ export default new vuex.Store({
         }
     }
 
-    // getTracks() { },
-    // addTrack() { },
-    // removeTrack() { },
-    // promoteTrack() { },
-    // demoteTrack() { }
 })
