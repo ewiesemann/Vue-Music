@@ -2,19 +2,24 @@ let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
 
-let schemaName = 'Playlist'
+let schemaName = 'playlist'
 
-let songSchema = new Schema({
-    artist: {type: String, required: true},
-    title: {type: String, required: true}
-})
-
-let schema = new Schema({
+let song = new Schema({
     title: {type: String, required: true},
-    song: [songSchema]
+    albumArt: {type: String, required: true},
+    artist: {type: String, required: true},
+    preview: {type: String, required: true},
+    price: {type: String, required: true}
 })
 
-schema.pre('save', function(next){
+let playlist = new Schema({
+    title: {type: String, required: true},
+    song: [song]
+})
+
+
+
+playlist.pre('save', function(next){
     this.markModified('songs')
     next()
 })

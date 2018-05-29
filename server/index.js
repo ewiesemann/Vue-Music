@@ -8,38 +8,14 @@ app.use(cors())
 
 require ('../server/db/mlab-config')
 
-
-//REGISTER MIDDLEWEAR
 app.use(bp.json())
 app.use(bp.urlencoded({extended: true}))
 
 //Code above is always the same
 
-//let auth = require('../server/auth/routes')
-//app.use(auth.session)
-//app.use(auth.routes)
-
-//var users = require('../server/routes/users')
 var playlists = require('../server/routes/playlists')
-var users = require('../server/routes/users')
 
-
-app.use(users.router)
 app.use(playlists.router)
-
-// app.use('/users/*', (req, res, next) => {
-//     if (!req.session.uid) {
-//       return res.status(401).send({
-//         error: 'please login to continue'
-//       })
-//     }
-//     next()
-//   })
-
-//import routes
-
-var playlist = require('../server/routes/playlists')
-app.use(playlist.router)
 
 app.get('*', (req, res, next) => {
      res.status(404).send({
