@@ -19,7 +19,7 @@ router.get('mongoApi/playlists/:id?', (req, res) => {
       return res.send(playlist)
     })
     .catch(err => {
-      return res.status(404).send({ err })
+      return res.status(404).send({err})
     })
 })
 
@@ -40,12 +40,13 @@ router.post('/mongoApi/playlists', (req, res) => {
 router.put('/mongoApi/playlists/:id/songs', (req, res) => {
   Playlist.findById(req.params.id)
     .then(function(playlist){
-      playlist.songs.$addToSet(req.body)
+      playlist.songs.addToSet(req.body)
       playlist.save()
+      res.send(playlist)
     })
     .catch(err => {
       return res.status(400).send(err)
-    }
+    })
 })
 
 //Update entire song array from entire playlist

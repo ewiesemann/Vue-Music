@@ -25,18 +25,10 @@ function swapUrlSize(url, pixels) {
 
 export default new vuex.Store({
     state: {
-        user: {},
-        users: [],
         playlist: [],
         songs: []
     },
     mutations: {
-        setUser(state, user) {
-            state.user = user
-        },
-        setUsers(state, users) {
-            state.users = users
-        },
         addSongs(state, songs) {
             state.songs = songs
         },
@@ -48,28 +40,6 @@ export default new vuex.Store({
         }
     },
     actions: {
-        getUsers({ dispatch, commit }) {
-            api.get('users/')
-                .then(res => {
-                    commit('setUsers', res.data)
-                })
-        },
-        getUser({ dispatch, commit }, user) {
-            api.post('users/byname/' + user.name)
-                .then(res => {
-                    commit('setUser', res.data)
-                })
-                .catch(err => {
-                    alert(err)
-                })
-        },
-        addUser({ dispatch, commit }, user) {
-            api.post('users', user)
-                .then(res => {
-                    dispatch('setUser', )
-                    console.log('user added', res)
-                })
-        },
         addToPlaylist({ commit, dispatch, state }, song) {
             commit('addToPlaylist', song)
     

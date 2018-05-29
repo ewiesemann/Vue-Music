@@ -25,4 +25,4 @@ playlist.pre('save', function(next){
 })
 
 
-module.exports = mongoose.model(schemaName, schema)
+module.exports = mongoose.model(schemaName, playlist)
