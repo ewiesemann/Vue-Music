@@ -38,8 +38,6 @@
         title: '',
       }
     },
-
-
     computed: {
       songs() {
         return this.$store.state.songs
@@ -70,15 +68,12 @@
     display: grid;
     grid-template-areas: "results playlist"
   }
-
   .results {
     grid-area: results
   }
-
   .playlist {
     grid-area: playlist
   }
-
   ol {
     list-style-type: none;
   }
